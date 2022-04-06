@@ -4,6 +4,8 @@ from fastapi.responses import JSONResponse
 from json import JSONDecodeError
 import json
 
+from starlette.exceptions import HTTPException as StarletteHTTPException
+
 app = FastAPI()
 
 @app.get("/")
@@ -109,6 +111,7 @@ async def numberVehicule(request: Request):
 
 @app.post("/findVehicule")
 async def find_item(request: Request):
+
     data = await request.json()
 
     findVehicule = "Aucun vehicule n'a était trouvé"
@@ -170,3 +173,8 @@ async def find_item(request: Request):
                 findVehicule = voiture
        
     return findVehicule
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    return JSONResponse({"message": "endpoint not found" })
+
