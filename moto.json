@@ -1,1 +1,8 @@
-[]
+[
+    {
+        "name": "Yamaha GXt",
+        "marque": "Yamaha",
+        "speedMax": 320,
+        "km": 120635
+    }
+]
