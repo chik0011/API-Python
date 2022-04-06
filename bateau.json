@@ -4,5 +4,11 @@
         "marque": "nike",
         "speedMax": 56,
         "km": 25
+    },
+    {
+        "name": "tata",
+        "marque": "nike",
+        "speedMax": 56,
+        "km": 25
     }
 ]

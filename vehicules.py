@@ -121,8 +121,6 @@ class Avion:
 
 
 if __name__ == "__main__":
-
     Bateau = Bateau("toto", "nike", 56, 25)
-
     print(Bateau)
 
