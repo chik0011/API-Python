@@ -65,5 +65,44 @@ async def total():
 
     lenVoiture = len(data_voiture)
 
+    total = lenBateau + lenAvion + lenMoto + lenVoiture
 
-    return lenBateau + lenAvion + lenMoto + lenVoiture
+    return {"TotalVehicule": total} 
+
+
+'''
+    type == 0 => bateau
+    type == 1 => avion
+    type == 2 => moto
+    type == 3 => voiture
+'''
+
+@app.post("/totalPerVehicule")
+async def numberVehicule(request: Request):
+    data = await request.json()
+
+    if data["type"] == "0":
+        with open('bateau.json') as json_data:
+            data_bateau = json.load(json_data)
+
+        total = len(data_bateau)
+
+    elif data["type"] == "1":
+        with open('avion.json') as json_data:
+            data_avion = json.load(json_data)
+
+        total = len(data_avion)
+
+    elif data["type"] == "2":
+        with open('moto.json') as json_data:
+            data_moto = json.load(json_data)
+
+        total = len(data_moto)
+
+    elif data["type"] == "3":
+        with open('voiture.json') as json_data:
+            data_voiture = json.load(json_data)
+
+        total = len(data_voiture)
+
+    return { "TotalVehicule": total } 
